@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 #Configure MySQL
 conn = pymysql.connect(host='localhost',
-                       user=‘cuixiang’,
-                       password=‘heizhenzhu’,
+                       user='root',
+                       password='7183596771',
                        db='findit',
                        charset='utf8mb4',
                        cursorclass=pymysql.cursors.DictCursor)
@@ -28,8 +28,13 @@ def hello():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+	cursor = conn.cursor()
 	if request.method == 'GET':
-		return render_template('register.html', )
+		availableSchools = 'SELECT * FROM school'
+		cursor.execute(availableSchools, ())
+		availableSchoolsData = cursor.fetchall()
+
+		return render_template('register.html', availableSchools = availableSchoolsData)
 	else:
 		username = request.form['username']
 		password = request.form['password']
@@ -41,7 +46,6 @@ def register():
 		school = request.form['school']
 		major = request.form['major']
 
-		cursor = conn.cursor()
 		query = 'SELECT * FROM member WHERE member.username = %s'
 		cursor.execute(query, (username))
 		data = cursor.fetchone()
@@ -50,8 +54,18 @@ def register():
 			error = "This user already exists"
 			return render_template('register.html', error = error)
 		else:
-			query = 'INSERT INTO member(username, password, firstName, lastName, gender, race, email) VALUES(%s, md5(%s), %s, %s, %s, %s, %s); INSERT INTO belongs_to(username, school, major) VALUES(%s, %s, %s)'
-			cursor.execute(query, (username, password, firstName, lastName, gender, race, email, username, school, major));
+			try:
+				add_school = 'INSERT INTO school(school_name, major) VALUES(%s, %s)'
+				cursor.execute(add_skill, (school, major))
+			except:
+				pass
+
+			try: 
+				query = 'INSERT INTO member(username, password, firstName, lastName, gender, email) VALUES(%s, md5(%s), %s, %s, %s, %s); INSERT INTO belongs_to(username, school_name, major) VALUES(%s, %s, %s)'
+				cursor.execute(query, (username, password, firstName, lastName, gender, email, username, school, major));
+			except:
+				pass
+
 			conn.commit()
 			cursor.close()
 			return render_template('index.html')
