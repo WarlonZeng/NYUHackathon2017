@@ -1,28 +1,143 @@
 <html>
 <head>
+<link rel='stylesheet' type='text/css' href='../static/CSS/clean_margin.css'>
+<link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+<style>
+html {
+  background: -webkit-radial-gradient(#FF0,#FFC);
+  background: radial-gradient(#FFF,#CCC);
+  min-height: 100%;
+  
+  
+}
+
+.index{
+	position:absolute;
+	width:500px;
+	height:420px;
+	border-top:2px outset #CCC;
+	border-bottom:2px outset #CCC;
+	border-radius:10px;
+	box-shadow:-2px  #333 inset;
+	top:100px;
+	left:30%;
+	}
+	
+.buju{
+	position:relative;
+	
+	}
+	
+
+.logo{
+	width:100%;
+	height:300px;
+	text-align:center;
+	
+	font-size:30px;
+	line-height:100px;
+	font-family: 'Barrio', cursive;
+	color:#63C;
+	
+	}
+	
+.reg{
+	position:absolute;
+	top:75px;
+	left:100px;
+	
+	
+	}
+
+
+	
+li{
+	margin:10px;
+	
+	
+	}
+
+input{
+	width:200px;
+	height:30px;
+	display:inline-block;
+	}
+
+span{
+	margin:5px;
+	margin-right:10px;
+	}
+
+
+.rege{
+	position:absolute;
+	top:445px;
+	left:300px;
+	border:2px solid #666;
+	width:100px;
+	height:50px;
+	
+	text-align:center;
+	line-height:50px;
+	border-radius:10px;
+	box-shadow:0px 1px 1px 1px rgba(0,0,0,1);
+	border:2px solid #CCC;
+	
+	}
+
+.goback{
+	position:absolute;
+	top:545px;
+	left:490px;
+	
+	width:100px;
+	
+	}
+	
+.goback{
+	text-align:center;
+	line-height:50px;
+	border-radius:10px;
+	box-shadow:0px 1px 1px 1px rgba(0,0,0,1);
+	border:2px solid #CCC;
+	
+	}
+</style>
 </head>
 
 <body>
 
 <form action="/register" method="POST">
+	<div class='index'>
+    <div class='buju'>
+    <div class='logo'>MATCHING UP IDEAS AND SKILLS</div>
+    <div class='reg'>
+    
+    <ul>
+	<li><span>Username:</span>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name = "username" placeholder="NetID" required autofocus /> </li>
 
-	<input type="text" name = "username" placeholder="NetID" required autofocus /> </br>
+	<li><span>Password:</span>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="password" name = "password" placeholder="Password" required/></li>
 
-	<input type="password" name = "password" placeholder="Password" required/></br>
+	<li><span>First Name:</span>&nbsp&nbsp&nbsp&nbsp<input type="text" name = "firstName" placeholder="First Name" required/></li>
 
-	<input type="text" name = "firstName" placeholder="First Name" required/></br>
+	<li><span>Last Name:</span>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name = "lastName" placeholder="Last Name" required/></li>
 
-	<input type="text" name = "lastName" placeholder="Last Name" required/></br>
+	<li><span>Gender:</span>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name = "gender" placeholder="Gender" required/></li>
 
-	<input type="text" name = "gender" placeholder="Gender" required/></br>
+	<li><span>Email:</span>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name = "email" placeholder="Email" required/></li>
 
-	<input type="text" name = "email" placeholder="Email" required/></br>
+	<li><span>School:</span>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name = "school" placeholder="School" required/></li>
 
-	<input type="text" name = "school" placeholder="School" required/></br>
+	<li><span>Major:</span>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name = "major" placeholder="Major" required/></li>
+    </ul>
+    </div>
 
-	<input type="text" name = "major" placeholder="Major" required/></br>
+	<input type="submit" class='rege' value = Register />
+    
+	</div>
+    </div>
 
-	<input type="submit" value = Register />
+
 
 	<br>
 
@@ -43,7 +158,7 @@
 
 </form>
 
-<a href="/">Go back</a>
+<div class='goback'><a href="/">Go back</a></div>
 
 </body>
 
