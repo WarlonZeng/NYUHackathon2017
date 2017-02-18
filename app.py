@@ -50,8 +50,18 @@ def register():
 			error = "This user already exists"
 			return render_template('register.html', error = error)
 		else:
-			query = 'INSERT INTO member(username, password, firstName, lastName, gender, email) VALUES(%s, md5(%s), %s, %s, %s, %s, %s); INSERT INTO belongs_to(username, school, major) VALUES(%s, %s, %s)'
-			cursor.execute(query, (username, password, firstName, lastName, gender, email, username, school, major));
+			try: 
+				query = 'INSERT INTO member(username, password, firstName, lastName, gender, email) VALUES(%s, md5(%s), %s, %s, %s, %s)'
+				cursor.execute(query, (username, password, firstName, lastName, gender, email));
+			except:
+				pass
+			
+			try:
+				query = 'INSERT INTO belongs_to(username, school_name, major) VALUES(%s, %s, %s)'
+				cursor.execute(query, (username, school, major));
+			except:
+				pass
+			
 			conn.commit()
 			cursor.close()
 			return render_template('index.html')
