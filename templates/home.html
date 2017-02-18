@@ -1,56 +1,160 @@
 <html>
 <head>
+<link rel='stylesheet' type='text/css' href='../../CSS/clean_margin.css'>
+<style>
+body{
+	text-align:center;
+	}
+
+nav{
+	border:2px solid red;
+	height:30px;
+	line-height:30px;
+	}
+
+	
+.words{
+	display:inline-block;
+	float:right;
+	font-size:20px;
+	
+	}
+	
+span{
+	margin:5px;
+	
+	}
+	
+.seeking{
+	position:absolute;
+	width:300px;
+	height:150px;
+	
+	left:40%;
+	top:80px;
+	border-bottom:3px solid #ccc;
+	box-shadow:0px 6px 5px 2px #333;
+	
+	}
+	
+.match{
+	position:absolute;
+	width:300px;
+	height:300px;
+	
+	left:40%;
+	top:300px;
+
+	border-bottom:3px solid #ccc;
+	box-shadow:0px 6px 5px 2px #333;
+	
+	}
+	
+h2{
+	font-size:20px;
+	
+	}
+	
+.hide{
+	display:none;
+	
+	}
+	
+li{
+	list-style:none;
+	margin:5px;
+	font-size:20px;
+	text-align:center;
+	
+	}
+	
+#c{
+	position;absolute;
+	left:100px;
+	}
+
+.guide{
+	border-left:2px solid red;
+	border-right:2px solid red;
+	
+	}
+
+
+</style>
 </head>
 <body>
-
-<h1>Welcome {{username}}</h1> 
-
-<a href="/home">Home</a>
-<br>
-<a href="/logout">Logout</a>
-<br>
-<a href="/profile">Profile</a>
-<br>
-<a href="/posting">Skills Posting</a>
-
-<style type="text/css"> table, th, td{ border: 1px solid black; } </style>
+<nav>
 
 
-<h2><u>Skilled in/seeking</u></h2>
+<div class='words'>
+
+<span>Welcome {{username}} </span>
+
+<span><a href="/home"><span class='guide'>Home</span></a></span>
+
+<span><a href="/logout"><span class='guide'>Logout</span></a></span>
+
+<span><a href="/profile"><span class='guide'>Profile</span></a></span>
+
+<span><a href="/posting"><span class='guide'>Skills  Posting</span></a></span>
+</div>
+
+</nav>
+
+
+<div class='seeking'>
+<h2>Skilled in/seeking</h2>
 
 <table>
 {% for line in skills %}
 	<tr>
 
-		<td>{{line.keyword}}</td>
+		<td id='c'>{{line.keyword}}</td>
 		
 		<br>
 	</tr>
 {% endfor %}
 </table>
+</div>
 
 
+<div class='match'>
 <h2><u>Your matches</u></h2>
  
 <table>
-{% for line in matches %}
+<span class='hide'>{% for line in matches %}</span>
 	<tr>
 
-		<td>{{line.username}}</td>
-		<td>{{line.firstname}}</td>
-		<td>{{line.lastname}}</td>
-		<td>{{line.gender}}</td>
-		<td>{{line.email}}</td>
-		<td>{{line.school_name}}</td>
-		<td>{{line.major}}</td>
-		<td>{{line.keyword}}</td>
+		<td>
+        <ul>
+        
+        <li>{{line.username}}</li>
+		<li>{{line.firstname}} </li>
+		<li>{{line.lastname}}  </li>
+		<li>{{line.gender}}  </li>
+		<li>{{line.email}} </li>
+		<li>{{line.school_name}} </li> 
+		<li>{{line.major}} </li>
+		<li>{{line.keyword}} </li>
+        </ul>
+        <td>
+        
+        
+        <span class='hide'>
+        
 		{% if line.idea != "" %}
 			<td>{{line.idea}}</td>
 		{% endif %}
-		<br>
+        </span>
+       
+		
 	</tr>
-{% endfor %}
+<span class='hide'>{% endfor %}</span>
 </table>
+</div>
+
+
+
 
 </body>
 
