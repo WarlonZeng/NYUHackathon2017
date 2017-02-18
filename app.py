@@ -28,8 +28,13 @@ def hello():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+	cursor = conn.cursor()
 	if request.method == 'GET':
-		return render_template('register.html', )
+		availableSchools = 'SELECT * FROM school'
+		cursor.execute(availableSchools, ())
+		availableSchoolsData = cursor.fetchall()
+
+		return render_template('register.html', availableSchools = availableSchoolsData)
 	else:
 		username = request.form['username']
 		password = request.form['password']
@@ -41,7 +46,6 @@ def register():
 		school = request.form['school']
 		major = request.form['major']
 
-		cursor = conn.cursor()
 		query = 'SELECT * FROM member WHERE member.username = %s'
 		cursor.execute(query, (username))
 		data = cursor.fetchone()
@@ -51,14 +55,8 @@ def register():
 			return render_template('register.html', error = error)
 		else:
 			try: 
-				query = 'INSERT INTO member(username, password, firstName, lastName, gender, email) VALUES(%s, md5(%s), %s, %s, %s, %s)'
-				cursor.execute(query, (username, password, firstName, lastName, gender, email));
-			except:
-				pass
-			
-			try:
-				query = 'INSERT INTO belongs_to(username, school_name, major) VALUES(%s, %s, %s)'
-				cursor.execute(query, (username, school, major));
+				query = 'INSERT INTO member(username, password, firstName, lastName, gender, email) VALUES(%s, md5(%s), %s, %s, %s, %s); INSERT INTO belongs_to(username, school_name, major) VALUES(%s, %s, %s)'
+				cursor.execute(query, (username, password, firstName, lastName, gender, email, username, school, major));
 			except:
 				pass
 			
