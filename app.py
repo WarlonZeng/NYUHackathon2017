@@ -150,4 +150,4 @@ app.secret_key = 'cat'
 #debug = True -> you don't have to restart flask
 #for changes to go through, TURN OFF FOR PRODUCTION
 if __name__ == "__main__":
-	app.run('localhost', 5000, debug = True)
+	app.run('0.0.0.0', 5000, debug = True)
