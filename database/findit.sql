@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 18, 2017 at 12:01 PM
+-- Generation Time: Feb 18, 2017 at 10:07 PM
 -- Server version: 5.7.17-0ubuntu0.16.04.1
 -- PHP Version: 7.0.13-0ubuntu0.16.04.1
 
@@ -37,9 +37,11 @@ CREATE TABLE `belongs_to` (
 --
 
 INSERT INTO `belongs_to` (`username`, `school_name`, `major`) VALUES
+('abc', 'nyu college of arts and science', 'math'),
 ('mm1', 'nyu college of arts and science', 'math'),
 ('test', 'nyu tandon school of engineering', 'computer science'),
-('wz634', 'nyu tandon school of engineering', 'computer science');
+('wz634', 'nyu tandon school of engineering', 'computer science'),
+('yw2997', 'nyu college of arts and science', 'computer science');
 
 -- --------------------------------------------------------
 
@@ -75,7 +77,7 @@ CREATE TABLE `member` (
   `password` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
-  `gender` char(1) NOT NULL,
+  `gender` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -84,9 +86,11 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`username`, `password`, `firstname`, `lastname`, `gender`, `email`) VALUES
+('abc', '900150983cd24fb0d6963f7d28e17f72', 'abc', 'abc', 'M', 'abc@gmail.com'),
 ('mm1', '202cb962ac59075b964b07152d234b70', 'michael', 'idk', 'M', 'mm1@nyu.edu'),
 ('test', '202cb962ac59075b964b07152d234b70', 'xiang', 'cu', 'M', 'xz1008@nyu.edu'),
-('wz634', '202cb962ac59075b964b07152d234b70', 'warlon', 'zeng', 'M', 'wz634@nyu.edu');
+('wz634', '202cb962ac59075b964b07152d234b70', 'warlon', 'zeng', 'M', 'wz634@nyu.edu'),
+('yw2997', '202cb962ac59075b964b07152d234b70', 'y', 'w', 'F', 'yw2997@nyu.edu');
 
 -- --------------------------------------------------------
 
@@ -104,6 +108,7 @@ CREATE TABLE `school` (
 --
 
 INSERT INTO `school` (`school_name`, `major`) VALUES
+('nyu college of arts and science', 'computer science'),
 ('nyu college of arts and science', 'math'),
 ('nyu tandon school of engineering', 'computer science');
 
@@ -122,9 +127,83 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`keyword`) VALUES
+('Adobe Illustrator'),
+('Adobe InDesign'),
+('Adobe Photoshop'),
+('Analytics'),
+('Android'),
+('APIs'),
+('Art Design'),
+('AutoCAD'),
+('Backup Management'),
+('C'),
+('C++'),
+('Client Server'),
+('Client Support'),
+('Configuration'),
+('Content Management Systems (CMS)'),
+('Content Managment'),
 ('css'),
+('Data Analytics'),
+('Design'),
+('Desktop Publishing'),
+('Diagnostics'),
+('Documentation'),
+('Email'),
+('End User Support'),
+('Engineering'),
+('Excel'),
+('FileMaker Pro'),
+('Fortran'),
+('Graphic Design'),
+('Hardware'),
+('Help Desk'),
 ('html'),
-('javascript');
+('Implementation'),
+('Installation'),
+('Internet'),
+('iOS'),
+('iPhone'),
+('Java'),
+('javascript'),
+('Linux'),
+('Mac'),
+('Matlab'),
+('Maya'),
+('Microsoft Excel'),
+('Microsoft Office'),
+('Microsoft Outlook'),
+('Microsoft Publisher'),
+('Microsoft Visual'),
+('Microsoft Word'),
+('Mobile'),
+('MySQL'),
+('Networks'),
+('Open Source Software'),
+('Oracle'),
+('Perl'),
+('PHP'),
+('Presentations'),
+('Processing'),
+('Programming'),
+('PT Modeler'),
+('Python'),
+('Ruby'),
+('Shade'),
+('Software'),
+('Spreadsheet'),
+('SQL'),
+('Support'),
+('Systems Administration'),
+('Tech Support'),
+('Troubleshooting'),
+('UI/UX'),
+('Unix'),
+('Web Page Design'),
+('Windows'),
+('Word Processing'),
+('XHTML'),
+('XML');
 
 --
 -- Indexes for dumped tables
