@@ -54,12 +54,18 @@ def register():
 			error = "This user already exists"
 			return render_template('register.html', error = error)
 		else:
+			try:
+				add_school = 'INSERT INTO school(school_name, major) VALUES(%s, %s)'
+				cursor.execute(add_skill, (school, major))
+			except:
+				pass
+
 			try: 
 				query = 'INSERT INTO member(username, password, firstName, lastName, gender, email) VALUES(%s, md5(%s), %s, %s, %s, %s); INSERT INTO belongs_to(username, school_name, major) VALUES(%s, %s, %s)'
 				cursor.execute(query, (username, password, firstName, lastName, gender, email, username, school, major));
 			except:
 				pass
-			
+
 			conn.commit()
 			cursor.close()
 			return render_template('index.html')
