@@ -1,0 +1,9 @@
+@charset "UTF-8";
+/* CSS Document */
+
+html,div,body,table,li,ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-family:"Times New Roman", Times, serif;
+	}

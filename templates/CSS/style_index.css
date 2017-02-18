@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+.idea{
+	width:50%;
+	height:635px;
+	background:red;
+	float:left;
+	}
+
+.skill{
+	width:50%;
+	height:635px;
+	background:green;
+	float:right;
+	
+	
+	}
+
+.rel{
+	position:relative;
+	}
+
+.think,.work{
+	position:absolute;
+	width:300px;
+	height:40px;
+	background:gold;
+	text-align:center;
+	line-height:40px;
+	top:300px;
+	left:30%;
+	}
+	
