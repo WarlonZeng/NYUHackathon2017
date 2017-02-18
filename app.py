@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 #Configure MySQL
 conn = pymysql.connect(host='localhost',
-                       user=‘cuixiang’,
-                       password=‘heizhenzhu’,
+                       user='root',
+                       password='7183596771',
                        db='findit',
                        charset='utf8mb4',
                        cursorclass=pymysql.cursors.DictCursor)
