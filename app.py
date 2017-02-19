@@ -1,5 +1,5 @@
 #Import Flask Library
-from flask import Flask, render_template, request, session, url_for, redirect
+from flask import Flask, render_template, request, session, url_for, redirect, send_from_directory
 import pymysql.cursors
 
 
@@ -20,6 +20,9 @@ conn = pymysql.connect(host='localhost',
 # RENDER INITIAL PAGES
 # ============================================================================================
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.icon')
 
 @app.route('/')
 def hello():
