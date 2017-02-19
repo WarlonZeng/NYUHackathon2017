@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 18, 2017 at 10:07 PM
+-- Generation Time: Feb 18, 2017 at 07:39 PM
 -- Server version: 5.7.17-0ubuntu0.16.04.1
 -- PHP Version: 7.0.13-0ubuntu0.16.04.1
 
@@ -38,6 +38,7 @@ CREATE TABLE `belongs_to` (
 
 INSERT INTO `belongs_to` (`username`, `school_name`, `major`) VALUES
 ('abc', 'nyu college of arts and science', 'math'),
+('asdf', 'nyu tandon school of engineering', 'computer science'),
 ('mm1', 'nyu college of arts and science', 'math'),
 ('test', 'nyu tandon school of engineering', 'computer science'),
 ('wz634', 'nyu tandon school of engineering', 'computer science'),
@@ -52,19 +53,21 @@ INSERT INTO `belongs_to` (`username`, `school_name`, `major`) VALUES
 CREATE TABLE `interested_in` (
   `username` varchar(255) NOT NULL,
   `keyword` varchar(255) NOT NULL,
-  `idea` text NOT NULL
+  `idea` text NOT NULL,
+  `recruiting` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `interested_in`
 --
 
-INSERT INTO `interested_in` (`username`, `keyword`, `idea`) VALUES
-('mm1', 'css', 'hackathon'),
-('test', 'html', 'hackathon web app'),
-('test', 'javascript', 'come to me'),
-('wz634', 'html', ''),
-('wz634', 'javascript', '');
+INSERT INTO `interested_in` (`username`, `keyword`, `idea`, `recruiting`) VALUES
+('asdf', 'html', 'help me with idea', 1),
+('mm1', 'css', 'hackathon', 1),
+('test', 'html', 'hackathon web app', 1),
+('test', 'javascript', 'come to me', 1),
+('wz634', 'html', '', 0),
+('wz634', 'javascript', '', 0);
 
 -- --------------------------------------------------------
 
@@ -87,6 +90,7 @@ CREATE TABLE `member` (
 
 INSERT INTO `member` (`username`, `password`, `firstname`, `lastname`, `gender`, `email`) VALUES
 ('abc', '900150983cd24fb0d6963f7d28e17f72', 'abc', 'abc', 'M', 'abc@gmail.com'),
+('asdf', '202cb962ac59075b964b07152d234b70', 'asdf', 'zxcv', 'male', 'asdf@nyu.edu'),
 ('mm1', '202cb962ac59075b964b07152d234b70', 'michael', 'idk', 'M', 'mm1@nyu.edu'),
 ('test', '202cb962ac59075b964b07152d234b70', 'xiang', 'cu', 'M', 'xz1008@nyu.edu'),
 ('wz634', '202cb962ac59075b964b07152d234b70', 'warlon', 'zeng', 'M', 'wz634@nyu.edu'),
