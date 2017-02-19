@@ -1,7 +1,7 @@
 <html>
 <head>
 <link rel='stylesheet' type='text/css' href='../static/CSS/clean_margin.css'>
-<link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
 <style>
 html {
@@ -11,7 +11,9 @@ html {
   
   
 }
-
+body{
+	text-align:center;
+	}
 nav{
 	background:radial-gradient(#C0F,#C6F);
 	height:35px;
@@ -98,12 +100,11 @@ input{
 	box-shadow:2px 2px 2px 2px #333;
 	border-radius:10px;
 	
+	
+	
 	position: absolute;
-    top: 0px;
-    right: 0px;
-	
-	
-	
+	top: 0;
+	left: 0;
 	
 	}
 	
@@ -135,8 +136,6 @@ input{
 
 
 
-
-
 <div class='info'>
 <table>
 {% for line in skills %}
@@ -149,13 +148,15 @@ input{
 {% endfor %}
 </table>
 </div>
+
+
 <div class='index'>
 <form action="/posting" method="POST">
 	<div>
-	<input type="text" name = "keyword" placeholder="Got A skill?" class='sk' required autofocus /> 
+	<input type="text" name = "keyword" placeholder="Skill" class='sk' required autofocus /> 
     </div>
 
-	<input type="text" name = "idea" placeholder="Got An Idea?" class='id' required autofocus />
+	<input type="text" name = "idea" placeholder="Idea" class='id' autofocus />
 </div>
 	<br>
     <div class='recruiter'>
