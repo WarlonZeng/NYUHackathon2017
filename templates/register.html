@@ -88,8 +88,8 @@ span{
 
 .goback{
 	position:absolute;
-	top: 85%;
-	left: 40%;
+	top: 545px;
+	left: 600px;
 	width:100px;
 	
 	}
@@ -137,20 +137,17 @@ span{
 	</div>
     </div>
 
-
-
 	<br>
 
+	<table>
 	{% for line in availableSchools %}
-	<tr>
+		<tr>
 
-		<td>{{line.school_name}}</td>
-		<br>
-		<td>{{line.major}}</td>
+			<td>{{line.school_name}} - {{line.major}}</td>
 		
-		<br>
-	</tr>
+		</tr>
 	{% endfor %}
+	</table>
 
 	{% if error %}
 		<p class="error"><strong>Error:</strong> {{error}}</p>
