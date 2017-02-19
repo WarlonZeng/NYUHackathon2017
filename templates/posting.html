@@ -25,15 +25,19 @@
 
 <form action="/posting" method="POST">
 
-	<input type="text" name = "keyword" placeholder="Skill" required autofocus /> </br>
+	<input type="text" name = "keyword" placeholder="Skill" required autofocus /> 
 
-	<input type="text" name = "idea" placeholder="Idea" required autofocus /> </br>
+	<input type="text" name = "idea" placeholder="Idea" required autofocus />
 
+	<br>
+	Are you recruiter?
+
+	<br>
+	<input type="radio" name="recruiting" value="1" >Yes
+	<br>
+	<input type="radio" name="recruiting"  value="0" >No
+	<br>
 	<input type="submit" value = submit />
-
-	{% if error %}
-		<p class="error"><strong>Error:</strong> {{error}}</p>
-	{% endif %}
 
 </form>
 

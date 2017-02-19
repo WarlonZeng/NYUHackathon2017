@@ -102,7 +102,7 @@ def home():
 	cursor.execute(skills, (username))
 	skillsData = cursor.fetchall()
 
-	matches = 'SELECT * FROM member NATURAL JOIN belongs_to NATURAL JOIN interested_in WHERE (keyword) IN (SELECT keyword FROM member NATURAL JOIN interested_in WHERE (username = %s)) AND (username != %s)'
+	matches = 'SELECT * FROM member NATURAL JOIN belongs_to NATURAL JOIN interested_in WHERE (keyword) IN (SELECT keyword FROM member NATURAL JOIN interested_in WHERE (username = %s)) AND (recruiting) NOT IN (SELECT recruiting FROM member NATURAL JOIN interested_in WHERE (username = %s))'
 	cursor.execute(matches, (username, username))
 	matchesData = cursor.fetchall()
 	
@@ -137,6 +137,7 @@ def posting():
 	else:
 		keyword = request.form['keyword']
 		idea = request.form['idea']
+		recruiting = request.form['recruiting']
 
 		try:
 			add_skill = 'INSERT INTO skills(keyword) VALUES(%s)'
@@ -144,8 +145,8 @@ def posting():
 		except:
 			pass
 
-		posting = 'INSERT INTO interested_in(username, keyword, idea) VALUES(%s, %s, %s)'
-		cursor.execute(posting, (username, keyword, idea))
+		posting = 'INSERT INTO interested_in(username, keyword, idea, recruiting) VALUES(%s, %s, %s, %s)'
+		cursor.execute(posting, (username, keyword, idea, recruiting))
 		#postingData = cursor.fetchall()
 
 		cursor.close()
