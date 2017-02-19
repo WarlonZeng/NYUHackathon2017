@@ -145,8 +145,11 @@ def posting():
 		except:
 			pass
 
-		posting = 'INSERT INTO interested_in(username, keyword, idea, recruiting) VALUES(%s, %s, %s, %s)'
-		cursor.execute(posting, (username, keyword, idea, recruiting))
+		try: 
+			posting = 'INSERT INTO interested_in(username, keyword, idea, recruiting) VALUES(%s, %s, %s, %s)'
+			cursor.execute(posting, (username, keyword, idea, recruiting))
+		except:
+			pass
 		#postingData = cursor.fetchall()
 
 		cursor.close()
