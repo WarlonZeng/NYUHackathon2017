@@ -1,18 +1,24 @@
 <html>
 <head>
 <link rel='stylesheet' type='text/css' href='../../CSS/clean_margin.css'>
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
 <style>
+html {
+  background: -webkit-radial-gradient(#FF0,#FFC);
+  background: radial-gradient(#FFF,#CCC);
+  min-height: 100%;
+  
+  
+}
 body{
 	text-align:center;
 	}
-
 nav{
-	border:2px solid red;
-	height:30px;
+	background:radial-gradient(#C0F,#C6F);
+	height:35px;
 	line-height:30px;
 	}
-
 	
 .words{
 	display:inline-block;
@@ -22,17 +28,18 @@ nav{
 	}
 	
 span{
-	margin:5px;
+	height:30px;
+	margin:2px;
 	
 	}
 	
 .seeking{
 	position:absolute;
-	width:300px;
-	height:150px;
+	width:30%;
+	height:70%;
 	
-	left:40%;
-	top:80px;
+	left:15%;
+	top:20%;
 	border-bottom:3px solid #ccc;
 	box-shadow:0px 6px 5px 2px #333;
 	
@@ -40,12 +47,11 @@ span{
 	
 .match{
 	position:absolute;
-	width:300px;
-	height:300px;
+	width:30%;
+	height:70%;
 	
-	left:40%;
-	top:300px;
-
+	left:60%;
+	top:20%;
 	border-bottom:3px solid #ccc;
 	box-shadow:0px 6px 5px 2px #333;
 	
@@ -71,16 +77,20 @@ li{
 	
 #c{
 	position;absolute;
-	left:100px;
+	
+	left:20%;
+	top:30%;
 	}
-
 .guide{
-	border-left:2px solid red;
-	border-right:2px solid red;
+	border-left:1px solid ;
+	box-shadow:2px 1px 2px #666666;
+	color:#CCC;
+	font-family:'Indie Flower', cursive;
 	
 	}
-
-
+a{
+	text-decoration:none;
+	}
 </style>
 </head>
 <body>
@@ -89,7 +99,7 @@ li{
 
 <div class='words'>
 
-<span>Welcome {{username}} </span>
+<span><b>Welcome,{{username}}</b> </span>
 
 <span><a href="/home"><span class='guide'>Home</span></a></span>
 
@@ -104,7 +114,7 @@ li{
 
 
 <div class='seeking'>
-<h2>Skilled in/seeking</h2>
+<h2>Skilled in or seeking</h2>
 
 <table>
 {% for line in skills %}
@@ -129,14 +139,13 @@ li{
 		<td>
         <ul>
         
-        <li>{{line.username}}</li>
-		<li>{{line.firstname}} </li>
-		<li>{{line.lastname}}  </li>
-		<li>{{line.gender}}  </li>
-		<li>{{line.email}} </li>
-		<li>{{line.school_name}} </li> 
-		<li>{{line.major}} </li>
-		<li>{{line.keyword}} </li>
+        <li>NetID: {{line.username}}</li>
+		<li>Name: {{line.firstname}} {{line.lastname}}</li>
+		<li>Gender: {{line.gender}}  </li>
+		<li>Email: {{line.email}} </li>
+		<li>School: {{line.school_name}} </li> 
+		<li>Major: {{line.major}} </li>
+		<li>Skill: {{line.keyword}} </li>
         </ul>
         <td>
         
