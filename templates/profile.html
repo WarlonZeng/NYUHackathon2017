@@ -1,39 +1,153 @@
 <html>
 <head>
+<link rel='stylesheet' type='text/css' href='../../CSS/clean_margin.css'>
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+<style>
+html {
+  background: -webkit-radial-gradient(#FF0,#FFC);
+  background: radial-gradient(#FFF,#CCC);
+  min-height: 100%;
+  
+  
+}
+body{
+	text-align:center;
+	}
+nav{
+	background:radial-gradient(#C0F,#C6F);
+	height:35px;
+	line-height:30px;
+	}
+	
+.words{
+	display:inline-block;
+	float:right;
+	font-size:20px;
+	
+	}
+	
+span{
+	height:30px;
+	margin:2px;
+	
+	}
+	
+
+	
+.match{
+	position:absolute;
+	width:30%;
+	height:70%;
+	
+	left:60%;
+	top:20%;
+	border-bottom:3px solid #ccc;
+	box-shadow:0px 6px 5px 2px #333;
+	overflow:hidden;
+	
+	}
+	
+h2{
+	font-size:20px;
+	
+	}
+	
+.hide{
+	display:none;
+	
+	}
+	
+li{
+	list-style:none;
+	margin:5px;
+	font-size:20px;
+	
+	}
+	
+#c{
+	position;absolute;
+	
+	left:20%;
+	top:30%;
+	}
+.guide{
+	border-left:1px solid ;
+	box-shadow:2px 1px 2px #666666;
+	color:#CCC;
+	font-family:'Indie Flower', cursive;
+	
+	}
+a{
+	text-decoration:none;
+	}
+	
+	
+.light{
+	position:absolute;
+	width:300px;
+	height:400px;
+	background-image:url(../static/image/light.jpg);
+	background-size:cover;
+	top:25%;
+	left:15%;
+	/*  */
+	
+	
+	}
+</style>
 </head>
 <body>
-
-<h1>Welcome {{username}}</h1> 
-
-<a href="/home">Home</a>
-<a href="/logout">Logout</a>
-<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
-
-<style type="text/css"> table, th, td{ border: 1px solid black; } </style>
+<nav>
 
 
-<h2><u>Your profile></h2>
+<div class='words'>
 
+<span><b>Welcome,{{username}}</b> </span>
+
+<span><a href="/home"><span class='guide'>Home</span></a></span>
+
+<span><a href="/logout"><span class='guide'>Logout</span></a></span>
+
+<span><a href="/profile"><span class='guide'>Profile</span></a></span>
+
+<span><a href="/posting"><span class='guide'>Skills  Posting</span></a></span>
+</div>
+
+</nav>
+
+<div class='light'></div>
+
+<div class='match'>
+<h2><u>Your matches</u></h2>
+ 
 <table>
-{% for line in profile %}
+<span class='hide'>{% for line in matches %}</span>
 	<tr>
 
-		<td>{{line.username}}</td>
-		<td>{{line.firstname}}</td>
-		<td>{{line.lastname}}</td>
-		<td>{{line.gender}}</td>
-		<td>{{line.race}}</td>
-		<td>{{line.email}}</td>
-		<td>{{line.school_name}}</td>
-		<td>{{line.major}}</td>
-		<td>{{line.keyword}}</td>
+		<td>
+        <ul>
+        
+        <li>NetID: {{line.username}}</li>
+		<li>Name: {{line.firstname}} {{line.lastname}}</li>
+		<li>Gender: {{line.gender}}  </li>
+		<li>Email: {{line.email}} </li>
+		<li>School: {{line.school_name}} </li> 
+		<li>Major: {{line.major}} </li>
+		<li>Skill: {{line.keyword}} </li>
 		{% if line.idea != "" %}
-			<td>{{line.idea}}</td>
+			<li>Idea: {{line.idea}}</li>
 		{% endif %}
-		<br>
+        </ul>
+        <td>
+       	
 	</tr>
-{% endfor %}
+<span class='hide'>{% endfor %}</span>
 </table>
+</div>
+
+
+
 
 </body>
 
