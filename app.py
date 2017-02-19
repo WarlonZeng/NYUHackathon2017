@@ -20,9 +20,6 @@ conn = pymysql.connect(host='localhost',
 # RENDER INITIAL PAGES
 # ============================================================================================
 
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.icon')
 
 @app.route('/')
 def hello():
