@@ -71,7 +71,6 @@ li{
 	list-style:none;
 	margin:5px;
 	font-size:20px;
-	text-align:center;
 	
 	}
 	
@@ -146,18 +145,12 @@ a{
 		<li>School: {{line.school_name}} </li> 
 		<li>Major: {{line.major}} </li>
 		<li>Skill: {{line.keyword}} </li>
-        </ul>
-        <td>
-        
-        
-        <span class='hide'>
-        
 		{% if line.idea != "" %}
 			<td>{{line.idea}}</td>
 		{% endif %}
-        </span>
-       
-		
+        </ul>
+        <td>
+       	
 	</tr>
 <span class='hide'>{% endfor %}</span>
 </table>
