@@ -4,12 +4,12 @@ Findit website
 http://ec2-54-210-90-217.compute-1.amazonaws.com:5000/
 
 ## Inspiration
-Very so often we get spammed by "visionaries" to implement their idea. So we built an web app that takes upon that brilliant or naive idealism and find the right person to deal with them.
+Very so often we get invited by "visionaries" to implement their idea. So we built an web app that takes upon their brilliant ideas and match the right person to help them. Especially in Hackathons, finding a match can same time and stress.
 
 ## What it does
 "Findit" is a web-app platform that aims connects main campus students with ideas to school of engineering computer science students with skills. Sign up with your Net ID, school, major, and post your required skill needed for your idea. Not a recruiter? Don't need to post an idea -- just list off your skills!
 
-## How I built it
+## How we built it
 ### Technologies involved
 * Linux
 * Apache
@@ -29,16 +29,16 @@ Very so often we get spammed by "visionaries" to implement their idea. So we bui
 3. Import the SQL
 4. Run by "python app.py"
 
-Started with the database, identified tables and relationships (primary, foreign key constraints). Worked on the server after to retrieve the data from the database and render it with its respective template engine (jinja). Deployed it to the cloud via EC2 Ubuntu. Not hard, just needed to install the LAMP stack and do perform continuous integration with the cloud.
+Started with the database, identified tables and relationships (primary, foreign key constraints). Worked on the server after to retrieve the data from the database and render it with its respective template engine (jinja). Deployed it to the cloud via EC2 Ubuntu. Installed the LAMP stack and performed continuous integration with the cloud.
 
-## Challenges I ran into
-HTML and CSS'ing the thing to make it look pretty and presentable. Not my cup of tea (I'm more software architect/developer/engineer). Probably wasted the most time with CSS'ing. Also the NYU API was unanimously deemed garbage or way too arcane. Also my SQL returned "duplicates", which I could have probably easily solved with a multi-value field. 
+## Challenges we ran into
+HTML and CSS'ing the thing to make it look pretty and presentable. Probably wasted the most time with CSS'ing. Also the NYU API was unanimously deemed garbage or way too arcane. My SQL returned "duplicates", which I could have probably easily solved with a multi-value field. 
 
-## Accomplishments that I'm proud of
-Getting a minimum viable product ready. The backend capabilities turned out to be half the strength of my signature projects, but that's ok -- had fun.
+## Accomplishments that we're proud of
+Getting a minimum viable product ready. Teamwork was fluid in expressing idea requirements and specifications. Software architecture flow was implemented as planned.
 
-## What I learned
-Not a lot for me (maybe for my team mates). The scale is too small (2 days) and not enough incentive to tryhard. I hear a lot of buzzwords get thrown around though.
+## What we learned
+Could have used docker to migrate virtual box technology stack to AWS EC2 instance. There was time wasted in downloading LAMP software on cloud servers. Taught and gave team mates insight on backend infrastructure work. Also shared some web design experience as well. 
 
 ## What's next for Findit
 
