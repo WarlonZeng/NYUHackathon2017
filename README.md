@@ -1,7 +1,11 @@
 # Findit
 Findit website
 
-http://ec2-54-210-90-217.compute-1.amazonaws.com:5000/
+~~http://ec2-54-210-90-217.compute-1.amazonaws.com:5000/~~
+
+*Updated 2/25/2017*
+
+Server shut down because event ended. Project maintenance not supported.
 
 ## Inspiration
 Very so often we get invited by "visionaries" to implement their idea. So we built an web app that takes upon their brilliant ideas and match the right person to help them. Especially in Hackathons, finding a match can same time and stress.
